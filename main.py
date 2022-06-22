@@ -19,7 +19,7 @@ API = 'https://single-developers.up.railway.app/tiktok?url='
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
 # TikTok Video URL Types , You Can Add More to This :)
-TikTok_Link_Types= ['https://m.tiktok.com','https://vt.tiktok.com','https://tiktok.com','https://www.tiktok.com']
+TikTok_Link_Types= ['https://m.tiktok.com','https://vt.tiktok.com','https://tiktok.com','https://www.tiktok.com','https://vm.tiktok.com']
 
 # ParseMode Type For All Messages
 _ParseMode=ParseMode.MARKDOWN
@@ -47,7 +47,7 @@ def Download_Video(Link,update, context):
     no_watermark=None
     watermark=None
 
-    status_msg=message.reply_text('🚀 DOᗯᑎᒪOᗩᗪIᑎG Video TO Sᕮᖇᐯᕮᖇ ....')
+    status_msg=message.reply_text('🚀 Downloading Video to Server ....')
     status_sticker=message.reply_sticker('CAACAgUAAxkBAAED9jhiDqYeGjENlCjftByz0au6n4YAASEAAnUEAALpa8lXL9cvxeTK-2AjBA')
 
     # Getting Download Links Using API
@@ -66,14 +66,11 @@ def Download_Video(Link,update, context):
 
 ✅ Successfully Downloaded {} Video 🔰
 
-🔰 Powerd by : [🏖 TikTok Download API 🏖](https://github.com/Single-Developers/API/blob/main/tiktok/Note.md)
-[🔥 Single Developers </> ](https://t.me/SingleDevelopers) Corporation ©️
-
 ◇───────────────◇"""
     
     # Uploading Downloaded Videos to Telegram
     print('Uploading Videos')
-    status_msg.edit_text('☘️ 𝚄𝚙𝚕𝚘𝚊𝚍𝚒𝚗𝚐 𝚝𝚘 𝚃𝚎𝚕𝚎𝚐𝚛𝚊𝚖....')
+    status_msg.edit_text('☘️ Uploading to Telegram....')
     message.reply_video(video=no_watermark,supports_streaming=True,caption=caption_text.format('No Watermark'),parse_mode=_ParseMode)
     message.reply_video(video=watermark,supports_streaming=True,caption=caption_text.format('Watermark'),parse_mode=_ParseMode)
 
